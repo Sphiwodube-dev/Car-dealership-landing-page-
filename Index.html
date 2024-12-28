@@ -1,2 +1,474 @@
-# Car-dealership-landing-page-
-A responsive simple landing page for a car dealership with a modern design. 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Official McLaren Dealership - Discover the latest models, performance, and luxury cars.">
+  <title>McLaren Dealership</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(145deg, #000000, #3d3d5c);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Ensures the logo and links are spaced out */
+  align-items: center; /* Vertically centers the content */
+  padding: 15px 30px;
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+
+/* Logo styling */
+.navbar .logo {
+  width: 50px; /* Adjust the size of the logo */
+  height: 50px; /* Make sure the height and width are the same for a circle */
+  border-radius: 50%; /* Makes the logo circular */
+  object-fit: cover; /* Ensures the image doesn't stretch */
+  transition: transform 0.3s ease;
+}
+
+.navbar .logo:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Navbar Links Container */
+.navbar-links {
+  display: left;
+  gap:0px; /* Adds space between the links */
+}
+
+/* Navbar Links */
+.navbar a {
+  font-size: 1rem;
+  padding: 10px 20px;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #6C63FF;
+}
+   /* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.hero h1 {
+  font-size: 4rem;
+  color: black; /* Base text color */
+  text-shadow: 0 0 10px #6C63FF, 0 0 20px #6C63FF, 0 0 30px #6C63FF; /* Glowing purple effect */
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  color: black; /* Base text color */
+  text-shadow: 0 0 10px #6C63FF, 0 0 20px #6C63FF, 0 0 30px #6C63FF; /* Glowing purple effect */
+}
+
+.hero .cta {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 15px 30px;
+  background: none;
+  border: 2px solid #6C63FF;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  color: #6C63FF;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero .cta:hover {
+  background: #6C63FF;
+  color: black;
+}
+    /* Models Section */
+    .models {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .models h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    /* Carousel Section */
+    .carousel {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0px 0px 15px #6C63FF;
+      background: #222;
+      padding: 20px;
+    }
+
+    .carousel img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-details {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .carousel-details h3 {
+      font-size: 1.8rem;
+      color: #6C63FF;
+    }
+
+    .carousel-details p {
+      margin: 10px 0;
+    }
+
+    .carousel-details .cta {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: 2px solid #6C63FF;
+      color: #6C63FF;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-details .cta:hover {
+      background: #6C63FF;
+      color: black;
+    }
+
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .carousel-controls button {
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      transition: background 0.3s ease;
+    }
+
+    .carousel-controls button:hover {
+      background: rgba(108, 99, 255, 0.8);
+    }
+
+    .carousel-indicators {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .carousel-indicators span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 5px;
+      background: white;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .carousel-indicators span.active {
+      background: #6C63FF;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .carousel img {
+        width: 100%;
+      }
+
+      .navbar a {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+      }
+
+      .carousel-controls button {
+        font-size: 1.2rem;
+      }
+    }
+
+  /* Contact Section Styles */
+  #contact {
+    padding: 50px 20px;
+    text-align: center;
+    background: #111;
+    color: white;
+  }
+
+  #contact h2 {
+    font-size: 2.5rem;
+    color: #6C63FF;
+    margin-bottom: 20px;
+  }
+
+  .contact-info {
+    margin: 20px 0;
+    font-size: 1.2rem;
+  }
+
+  .contact-item {
+    margin-bottom: 10px;
+  }
+
+  .contact-item a {
+    color: #6C63FF;
+    text-decoration: none;
+  }
+
+  .contact-item a:hover {
+    text-decoration: underline;
+  }
+
+  .operating-hours {
+    margin-top: 30px;
+    color: #aaa;
+  }
+  
+/* Footer Styles */
+footer {
+  background: linear-gradient(145deg, #000000, #3d3d5c);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+footer a {
+  color: #6C63FF; /* Matches the purple glow theme */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #ffffff; /* On hover, link turns white */
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+footer .social-links {
+  margin: 10px 0;
+}
+
+footer .social-links a {
+  margin: 0 10px;
+  display: inline-block;
+  font-size: 1.2rem;
+}
+
+footer .social-links a:hover {
+  text-shadow: 0 0 10px #6C63FF, 0 0 20px #6C63FF;
+}
+  </style>
+</head>
+<body>
+  <!-- Navbar with Circular Logo and Links -->
+<div class="navbar">
+  <a href="#hero">
+    <img src="car1.jpg" alt="Logo" class="logo"> <!-- Circular Logo -->
+  </a>
+  <div class="navbar-links">
+    <a href="#hero">Home</a>
+    <a href="#models">Models</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+  <!-- Hero Section with Video Background -->
+  <div class="hero" id="hero">
+    <div class="video-background">
+      <video autoplay muted loop>
+        <source src="your-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div>
+      <h1>Drive Into the Future</h1>
+      <p>Unleashing Performance and Luxury Like Never Before</p>
+      <a href="#models" class="cta">Explore Our Models</a>
+    </div>
+  </div>
+
+  <!-- Models Section -->
+  <div id="models" class="models">
+    <h2>Explore Our Models</h2>
+    <div class="carousel">
+      <div id="slide1" class="slide">
+        <img src="A.jpg" alt="Bugatti Chiron">
+        <div class="carousel-details">
+          <h3>Bugatti Chiron</h3>
+          <p><strong>Top Speed:</strong> 261 mph</p>
+          <p><strong>Engine:</strong>8.0L Quad-Turbocharged W16
+</p>
+          <p><strong>Price:</strong> $3,000,000</p>
+          <a href="#" class="cta">Book a Test Drive</a>
+        </div>
+      </div>
+      <div id="slide2" class="slide" style="display: none;">
+        <img src="B.jpg" alt="Lamborghini Huracán">
+        <div class="carousel-details">
+          <h3>Lamborghini Huracán</h3>
+          <p><strong>Top Speed:</strong> 202 mph</p>
+          <p><strong>Engine:</strong>5.2L V10</p>
+          <p><strong>Price:</strong> $210,000</p>
+          <a href="#" class="cta">Book a Test Drive</a>
+        </div>
+      </div>
+      <div id="slide3" class="slide" style="display: none;">
+        <img src="C.jpg" alt="Rolls-Royce Dawn">
+        <div class="carousel-details">
+          <h3>Rolls-Royce Dawn</h3>
+          <p><strong>Top Speed:</strong> 155 mph</p>
+          <p><strong>Engine:</strong> 6.6L V12 Twin-Turbocharged</p>
+          <p><strong>Price:</strong> $350,000</p>
+          <a href="#" class="cta">Book a Test Drive</a>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button id="prev">&#8249;</button>
+        <button id="next">&#8250;</button>
+      </div>
+      <div class="carousel-indicators">
+        <span class="active" data-slide="0"></span>
+        <span data-slide="1"></span>
+        <span data-slide="2"></span>
+      </div>
+    </div>
+  </div>
+  <!-- Contact Section -->
+<div id="contact">
+  <h2>Contact Us</h2>
+  <div class="contact-info">
+    <div class="contact-item">
+      <strong>Address:</strong> McLaren Johannesburg, 123 Luxury Drive, Sandton, Gauteng, South Africa
+    </div>
+    <div class="contact-item">
+      <strong>Phone:</strong> +27 11 123 4567
+    </div>
+    <div class="contact-item">
+      <strong>Email:</strong> <a href="mailto:info@mclarenjhb.co.za">info@mclarenjhb.co.za</a>
+    </div>
+  </div>
+  <div class="operating-hours">
+    <p><strong>Operating Hours:</strong></p>
+    <p>Monday to Friday: 8:00 AM - 6:00 PM</p>
+    <p>Saturday: 9:00 AM - 4:00 PM</p>
+    <p>Sunday: Closed</p>
+  </div>
+</div>
+  <footer>
+  <p>© 2024 Zebra AI . All Rights Reserved.</p>
+  <div class="social-links">
+    <a href="https://www.facebook.com" target="_blank">Facebook</a> |
+    <a href="https://www.twitter.com" target="_blank">Twitter</a> |
+    <a href="https://www.instagram.com" target="_blank">Instagram</a>
+  </div>
+  
+</footer>
+
+  <script>
+    // Carousel Functionality
+    const slides = document.querySelectorAll('.slide');
+    const indicators = document.querySelectorAll('.carousel-indicators span');
+    let currentIndex = 0;
+
+    function updateCarousel(index) {
+      slides.forEach((slide, i) => {
+        slide.style.display = i === index ? 'block' : 'none';
+      });
+      indicators.forEach((indicator, i) => {
+        indicator.classList.toggle('active', i === index);
+      });
+    }
+
+    document.getElementById('prev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel(currentIndex);
+    });
+
+    document.getElementById('next').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel(currentIndex);
+    });
+
+    indicators.forEach((indicator, i) => {
+      indicator.addEventListener('click', () => {
+        currentIndex = i;
+        updateCarousel(currentIndex);
+      });
+    });
+
+    updateCarousel(currentIndex);
+  </script>
+</body>
+  </html>
